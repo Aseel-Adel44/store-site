@@ -175,7 +175,7 @@ def forgot_password():
                 if user:
                     token = secrets.token_urlsafe(16)
                     reset_tokens[token] = {"email": email, "expires": datetime.now() + timedelta(minutes=15)}
-                    reset_link = f"http://127.0.0.1:5001/reset_password/{token}"
+                    reset_link = f"{request.url_root}reset_password/{token}"
                     reset_link_display = reset_link
     return render_template("forgot_password.html", reset_link=reset_link_display)
 
