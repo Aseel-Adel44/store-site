@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Telephone</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='lap.css') }}">
+    <!-- مكتبة أيقونات ionicons -->
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</head>
+
+<body data-user="{{username}}">
+     <header class="main-header">
+        <div class="logo">
+            <h3>📱 MyStore</h3>
+            <p>best devices in one place</p>
+        </div>
+
+        <nav>
+            <ul>
+                <!--  <li><a href="/page2">Home</a></li>-->
+
+            </ul>
+        </nav>
+       <div class="header-icons">
+    <a href="/profile"><ion-icon name="person-circle-outline"></ion-icon></a>
+    <div class="cart-icon" onclick="toggleCart()">
+        <ion-icon name="cart-outline"></ion-icon>
+        <span id="cart-count">0</span>
+    </div>
+</div>
+
+<!-- شريط السلة خارج الـ header-icons -->
+<div class="cart-container">
+    <h2>Your Cart</h2>
+    <ul id="cart-items"></ul>
+    <p id="cart-total">Total: 0 JOD</p>
+    <p class="order-btn" onclick="confirmOrder()">Order confirmation</p>
+</div>
+
+        <div id="cart-popup"></div>
+
+    </header>
+
+    <h1 class="store-title">
+        <ion-icon name="headset-outline"></ion-icon>
+        <i><u>Headphone</u></i>
+    </h1>
+    <div class="store-container">
+        <div class="phones-container">
+
+            <!-- الجهاز الاول -->
+            <div class="phone-card">
+                <div class="product">
+                    <div class="image-box">
+                        <button class="arrow left" onclick="prevImage('lap1')">❮</button>
+
+                        <img id="lap1-img" src="{{ url_for('static', filename='images/lap.jpg') }}" alt="WH-1000XM6">
+
+                        <button class="arrow right" onclick="nextImage('lap1')">❯</button>
+                    </div>
+
+                    <h3>Apple Laptop</h3>
+                    <p>Price: 399 <sub>JOD</sub></p>
+                    <p>Processor: Apple M2 Pro | M2 Max</p>
+                    <p>RAM: 16GB | 32GB | 64GB | 96GB</p>
+                    <p>Display: 16.2 inch Mini-LED</p>
+                    <p>Storage: 512GB | 1TB | 2TB | 4TB | 8TB</p>
+                    <p>Weight: 2.1 kg</p>
+
+                    <button class="add-to-cart" onclick="addToCart('WH-1000XM6', 399)">
+                        <ion-icon name="cart-outline"></ion-icon> Add
+                    </button>
+                </div>
+            </div>
+
+            <!-- الجهاز الثاني -->
+
+            <div class="phone-card">
+                <img src="{{ url_for('static', filename='images/lapD.jpg') }}" alt="Dell Latitude 3420">
+
+                <h3>Dell Latitude 3420</h3>
+                <p>Price: 450 <sub>JOD</sub></p>
+                <p>Processor: Intel Core i7-1165G7</p>
+                <p>RAM: 8GB</p>
+                <p>Storage: 512GB SSD</p>               
+                <p>Display: 14 inch FHD (1920×1080)</p>
+                <p>Operating System: DOS</p>
+
+                <button class="add-to-cart" onclick="addToCart('Dell Latitude 3420', 450)">
+                    <ion-icon name="cart-outline"></ion-icon> Add
+                </button>
+            </div>
+
+
+
+
+            <!-- الجهاز الثالث -->
+            <div class="phone-card">
+                <div class="product">
+                    <div class="image-box">
+                        <button class="arrow left" onclick="prevImage('lap3')">❮</button>
+
+                        <img id="lap3-img" src="{{ url_for('static', filename='images/lapH1.jpg') }}"
+                            alt="HP 250 G8">
+
+                        <button class="arrow right" onclick="nextImage('lap3')">❯</button>
+                    </div>
+
+                    <h3>HP 250 G8</h3>
+                    <p>Price: 420 <sub>JOD</sub></p>
+                    <p>Processor: Intel Core i5</p>
+                    <p>RAM: 8GB</p>
+                    <p>Storage: 512GB SSD</p>
+                    <p>Display: 15.6 inch</p>
+                    <p>Resolution: 1920×1080 FHD</p>
+                    <p>Design: Thin & Lightweight</p>
+
+                    <button class="add-to-cart" onclick="addToCart('HP 250 G8', 399)">
+                        <ion-icon name="cart-outline"></ion-icon> Add
+                    </button>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+    <a href="/page2" class="logout-btn">Go To Home</a>
+    <script src="{{ url_for('static', filename='lapJS.js') }}"></script>
+</body>
+
+</html>

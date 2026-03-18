@@ -1,0 +1,287 @@
+/* ------------------ عام ------------------ */
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: #f7f8fb;
+}
+
+/* ------------------ الهيدر ------------------ */
+.main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    background: #2c4766;
+    color: white;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.main-header .logo {
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.main-header nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.main-header nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.main-header nav ul li a:hover {
+    color: #f00074;
+}
+
+/* ------------------ أيقونات الهيدر ------------------ */
+.header-icons {
+    display: flex;         /* ترتيب العناصر أفقياً */
+    align-items: center;   /* محاذاة عمودية متوسطة */
+    gap: 15px;             /* مسافة بين الأيقونات */
+}
+
+.header-icons ion-icon {
+    font-size: 28px;
+    cursor: pointer;
+    transition: 0.3s;
+    color: #fff;
+}
+
+.header-icons ion-icon:hover {
+    color: #f0a500;
+}
+
+/* أيقونة السلة وعدد العناصر */
+.cart-icon {
+    position: relative;
+    cursor: pointer;
+    font-size: 28px;
+}
+
+#cart-count {
+    position: absolute;
+    top: -8px;
+    right: -10px;
+    background: red;
+    color: white;
+    font-size: 12px;
+    padding: 2px 6px;
+    border-radius: 50%;
+}
+
+/* ------------------ محتوى الصفحة ------------------ */
+.content {
+    margin-left: 220px;
+    padding: 40px;
+}
+
+.store-title {
+    font-size: 36px;
+    font-weight: 700;
+    color: #2c4766;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 30px;
+}
+
+/* ------------------ الحاوية والبطاقات ------------------ */
+.store-container {
+    display: flex;
+    gap: 30px;
+}
+
+.phones-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    flex: 3;
+}
+
+.phone-card {
+    background: rgb(213, 217, 217);
+    padding: 20px;
+    border-radius: 10px;
+    width: 220px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    transition: 0.3s;
+}
+
+.phone-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+}
+
+.phone-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: contain;
+    margin-bottom: 10px;
+}
+
+.add-to-cart {
+    background: #2c4766;
+    color: white;
+    border: none;
+    border-radius: 30px;
+    padding: 10px 15px;
+    font-size: 14px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: 0.3s;
+    margin-top: 10px;
+}
+
+.add-to-cart:hover {
+    background: #1f3247;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+/* ------------------ شريط السلة ------------------ */
+.cart-container {
+    position: fixed;
+    top: 70px;        /* أسفل الهيدر */
+    right: -350px;    /* مخفي أولاً */
+    width: 300px;
+    background: #f0f0f0;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: -3px 0 5px rgba(0,0,0,0.2);
+    transition: right 0.3s ease;
+    z-index: 1000;
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+.cart-container.active {
+    right: 20px;      /* يظهر عند النقر */
+}
+
+.cart-container h2 {
+    margin-bottom: 15px;
+    color: #2c4766;   /* لون عنوان السلة */
+}
+
+#cart-items {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 10px 0;
+}
+
+#cart-items li {
+    color: #000000;   /* لون اسم العنصر */
+    margin-bottom: 10px;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 5px;
+}
+
+#cart-total {
+    font-weight: bold;
+    margin-top: 10px;
+    color: #ff6600;   /* لون إجمالي السعر */
+}
+
+.remove-item {
+    background: #ff4d4f;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 20px;
+    font-size: 12px;
+    cursor: pointer;
+    line-height: 16px;
+    margin-left: 20px;
+}
+
+.order-btn {
+    display: block;
+    background: #28a745;
+    color: white;
+    text-align: center;
+    padding: 10px 15px;
+    border-radius: 10px;
+    margin-top: 15px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.order-btn:hover {
+    background: #218838;
+}
+
+/* ------------------ Popup رسالة الإضافة ------------------ */
+#cart-popup {
+    position: fixed;
+    top: 20px;
+    right: 70px;
+    background: #28a745;
+    color: white;
+    padding: 15px 25px;
+    border-radius: 10px;
+    font-weight: 500;
+    display: none;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    z-index: 1200;
+}
+
+/* ------------------ زر تسجيل الخروج ------------------ */
+.logout-btn {
+    display: inline-block;
+    width: 180px;
+    height: 45px;
+    line-height: 45px;
+    text-align: center;
+    background: #a00d0d;
+    color: white;
+    font-size: 16px;
+    font-weight: 500;
+    border-radius: 30px;
+    text-decoration: none;
+    box-shadow: 0 5px 15px rgba(16, 1, 1, 0.2);
+    transition: 0.3s;
+    margin-top: 150px;
+}
+
+.logout-btn:hover {
+    background: #1f3247;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+}
+
+/* ------------------ أسهم الصور ------------------ */
+.image-box {
+    position: relative;
+    width: 220px;
+    margin: auto;
+}
+
+.arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0,0,0,0.4);
+    color: white;
+    border: none;
+    font-size: 20px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.left { left: 5px; }
+.right { right: 5px; }

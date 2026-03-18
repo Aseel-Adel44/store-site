@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+    <title>Telephone</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='head.css') }}">
+    <!-- مكتبة أيقونات ionicons -->
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</head>
+<body data-user="{{username}}">
+
+
+    <header class="main-header">
+        <div class="logo">
+            <h3>📱 MyStore</h3>
+            <p>best devices in one place</p>
+        </div>
+
+        <nav>
+            <ul>
+                <!--  <li><a href="/page2">Home</a></li>-->
+
+            </ul>
+        </nav>
+       <div class="header-icons">
+    <a href="/profile"><ion-icon name="person-circle-outline"></ion-icon></a>
+    <div class="cart-icon" onclick="toggleCart()">
+        <ion-icon name="cart-outline"></ion-icon>
+        <span id="cart-count">0</span>
+    </div>
+</div>
+
+<!-- شريط السلة خارج الـ header-icons -->
+<div class="cart-container">
+    <h2>Your Cart</h2>
+    <ul id="cart-items"></ul>
+    <p id="cart-total">Total: 0 JOD</p>
+    <p class="order-btn" onclick="confirmOrder()">Order confirmation</p>
+</div>
+
+        <div id="cart-popup"></div>
+
+    </header>
+
+ <h1 class="store-title">
+    <ion-icon name="headset-outline"></ion-icon>
+    <i><u>Headphone</u></i>
+</h1>
+<div class="store-container">
+    <div class="phones-container">
+
+        <!-- الجهاز الاول -->
+        <div class="phone-card">
+            <div class="product">
+                <div class="image-box">
+                    <button class="arrow left" onclick="prevImage('head1')">❮</button>
+
+                     <img id="head1-img" src="{{ url_for('static', filename='images/head.webp') }}" alt="WH-1000XM6">
+
+                    <button class="arrow right" onclick="nextImage('head1')">❯</button>
+                </div>
+
+                <h3>WH-1000XM6</h3>
+                <p>Price: 399 <sub>JOD</sub></p>
+                <p>Noise Cancelling: Yes</p>
+                <p>Battery Life: 30 Hours</p>
+                <p>Bluetooth: 5.3</p>
+                <p>Weight: 254g</p>
+
+                <button class="add-to-cart" onclick="addToCart('WH-1000XM6', 399)">
+                    <ion-icon name="cart-outline"></ion-icon> Add
+                </button>
+            </div>
+        </div>
+
+        <!-- الجهاز الثاني -->
+        <div class="phone-card">
+            <div class="product">
+                <div class="image-box">
+                    <button class="arrow left" onclick="prevImage('head2')">❮</button>
+
+                     <img id="head2-img" src="{{ url_for('static', filename='images/jbl.webp') }}" alt="JBL Headphones">
+
+                    <button class="arrow right" onclick="nextImage('head2')">❯</button>
+                </div>
+
+                <h3>JBL Headphones</h3>
+                <p>Price: 450 <sub>JOD</sub></p>
+                <p>Noise Cancelling: Yes</p>
+                <p>Battery Life: 30 Hours</p>
+                <p>Bluetooth: 7.3</p>
+                <p>Weight: 300g</p>
+
+                <button class="add-to-cart" onclick="addToCart('JBL Headphones', 399)">
+                    <ion-icon name="cart-outline"></ion-icon> Add
+                </button>
+            </div>
+        </div>
+
+
+        <!-- الجهاز الثالث -->
+        <div class="phone-card">
+            <div class="product">
+                <div class="image-box">
+                    <button class="arrow left" onclick="prevImage('head3')">❮</button>
+
+                     <img id="head3-img" src="{{ url_for('static', filename='images/airbuds.png') }}" alt="AirBuds UltraPods T-10">
+
+                    <button class="arrow right" onclick="nextImage('head3')">❯</button>
+                </div>
+
+                <h3>AirBuds UltraPods T-10</h3>
+                <p>Price: 24 <sub>JOD</sub></p>
+                <p>Noise Cancelling: Yes</p>
+                <p>Battery Life: 30 Hours</p>
+                <p>Bluetooth: 5.3</p>
+                <p>Weight: 50g</p>
+
+                <button class="add-to-cart" onclick="addToCart('AirBuds UltraPods T-10', 399)">
+                    <ion-icon name="cart-outline"></ion-icon> Add
+                </button>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+<a href="/page2" class="logout-btn">Go To Home</a>
+<script src="{{ url_for('static', filename='headjs.js') }}"></script>
+    </body>
+</html>

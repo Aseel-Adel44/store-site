@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Profile</title>
+
+<link rel="stylesheet" href="{{ url_for('static', filename='profileC.css') }}">
+
+<!-- مكتبة الايقونات -->
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+
+</head>
+
+<body>
+
+<h1 class="store-title">
+<ion-icon name="person-circle-outline"></ion-icon>
+<i><u>Profile</u></i>
+</h1>
+
+<div class="profile-container">
+
+    <div class="profile-card">
+        
+        <img src="{{ url_for('static', filename='images/user.png') }}" class="profile-img">
+
+        <h2>My account details</h2>
+
+<p><ion-icon name="person-circle-outline"></ion-icon> UserName: {{ username }}</p>
+
+<p><ion-icon name="mail-outline"></ion-icon> Email: {{ email }}</p>
+<p><ion-icon name="person-outline"></ion-icon> Full Name: <span id="first_name_display"> {{ first_name }}</span></p>
+<p><ion-icon name="call-outline"></ion-icon> Phone:<span id="phone_display">{{ phone }}</span></p>
+<p><ion-icon name="calendar-outline"></ion-icon> Entry date:  <span id="entry-date"></span></p>
+  
+    </div>
+
+    <div class="profile-card">
+
+        <img src="{{ url_for('static', filename='images/user.png') }}" class="profile-img">
+
+        <h2>Extra shop info</h2>
+
+        <p><ion-icon name="mail-outline"></ion-icon> info@gmail.com</p>
+
+        <p><ion-icon name="call-outline"></ion-icon> 00962798541236</p>
+
+       <p>
+  <a href="https://wa.me/962797161111" target="_blank">
+     <ion-icon name="logo-whatsapp"></ion-icon>
+    Contact us on WhatsApp
+   
+  </a>
+</p>
+
+</div>
+    
+
+</div>
+
+
+
+    <button  class="edit-btn" onclick="toggleEdit()"> <ion-icon name="create-outline"></ion-icon> Edit Profile
+    </button>
+
+   <!-- نموذج تحرير مخفي -->
+<div id="edit-form" style="display:none; margin-top:15px;">
+
+    <div>
+        <label for="first_name_input">First Name:</label>
+        <input type="text" id="first_name_input" value="{{ first_name }}">
+    </div>
+<br>
+    <div>
+        <label for="phone_input">Phone Number:</label>
+        <input type="text" id="phone_input" value="{{ phone }}">
+    </div>
+
+    <div >
+        <button  class="edti-profile" type="button" onclick="saveChanges()">Save</button>
+        <button  class="edti-profile" type="button" onclick="toggleEdit()">Cancel</button>
+    </div>
+
+</div>
+
+
+ <a href="/page2" class="logout-btn">Go To Home</a>
+
+<a href="/" class="home-btn">Logout</a>
+<script src="{{ url_for('static', filename='profileJS.js') }}"></script>
+</body>
+</html>

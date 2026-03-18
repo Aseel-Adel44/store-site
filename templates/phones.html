@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Telephone</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='phoneC.css') }}">
+    <!-- مكتبة أيقونات ionicons -->
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</head>
+
+<body data-user="{{username}}">
+
+
+    <header class="main-header">
+        <div class="logo">
+            <h3>📱 MyStore</h3>
+            <p>best devices in one place</p>
+        </div>
+
+        <nav>
+            <ul>
+                <!--  <li><a href="/page2">Home</a></li>-->
+
+            </ul>
+        </nav>
+       <div class="header-icons">
+    <a href="/profile"><ion-icon name="person-circle-outline"></ion-icon></a>
+    <div class="cart-icon" onclick="toggleCart()">
+        <ion-icon name="cart-outline"></ion-icon>
+        <span id="cart-count">0</span>
+    </div>
+</div>
+
+<!-- شريط السلة خارج الـ header-icons -->
+<div class="cart-container">
+    <h2>Your Cart</h2>
+    <ul id="cart-items"></ul>
+    <p id="cart-total">Total: 0 JOD</p>
+    <p class="order-btn" onclick="confirmOrder()">Order confirmation</p>
+</div>
+
+        <div id="cart-popup"></div>
+
+    </header>
+
+
+    <h1 class="store-title">
+        <ion-icon name="phone-portrait-outline"></ion-icon>
+        <I><u>Phones</u></I>
+    </h1>
+
+    <div class="store-container">
+        <div class="phones-container">
+
+            <!-- بطاقة iPhone 15 Pro Max -->
+            <div class="phone-card">
+                <div class="product">
+                    <div class="image-box">
+
+                        <button class="arrow left" onclick="prevImage('iphone1')">❮</button>
+
+                        <img id="iphone1-img" src="{{ url_for('static', filename='images/iphone1.png') }}"
+                            alt="iPhone 15 Pro Max">
+
+                        <button class="arrow right" onclick="nextImage('iphone1')">❯</button>
+
+                    </div>
+
+                    <h3>iPhone 15 Pro Max</h3>
+                    <p>Price: 999 <sub>JOD</sub></p>
+                    <p>RAM: 8GB</p>
+                    <p>Storage: 256GB</p>
+                    <p>Camera: 48MP</p>
+
+                    <button class="add-to-cart" onclick="addToCart('iPhone 15 Pro Max', 999)">
+                        <ion-icon name="cart-outline"></ion-icon> Add
+                    </button>
+
+                </div>
+            </div>
+
+            <!-- بطاقة Samsung S23 -->
+            <div class="phone-card">
+                <img src="{{ url_for('static', filename='images/samsung.jpg') }}" alt="Samsung S23">
+
+                <h3>Samsung S23</h3>
+                <p>Price: 899 <sub>JOD</sub></p>
+                <p>RAM: 8GB</p>
+                <p>Storage: 256GB</p>
+                <p>Camera: 50MP</p>
+
+                <button class="add-to-cart" onclick="addToCart('Samsung S23', 899)">
+                    <ion-icon name="cart-outline"></ion-icon> Add
+                </button>
+            </div>
+
+            <!-- بطاقة iPhone 17 Pro Max -->
+
+            <div class="phone-card">
+                <div class="product">
+                    <div class="image-box">
+
+                        <button class="arrow left" onclick="prevImage('iphone2')">❮</button>
+
+                        <img id="iphone2-img" src="{{ url_for('static', filename='images/iphone173.png') }}">
+
+                        <button class="arrow right" onclick="nextImage('iphone2')">❯</button>
+
+                    </div>
+                    <h3>iPhone 17 Pro Max</h3>
+                    <p>Price: 1500 <sub>JOD</sub></p>
+                    <p>RAM: 8GB</p>
+                    <p>Storage: 510GB</p>
+                    <p>Camera: 80MP</p>
+
+                    <button class="add-to-cart" onclick="addToCart('iPhone 17 Pro Max', 1500)">
+                        <ion-icon name="cart-outline"></ion-icon> Add
+                    </button>
+                </div>
+            </div>
+            <!-- بطاقة Huawei -->
+            <div class="phone-card">
+                <img src="{{ url_for('static', filename='images/huaweix3.png') }}" alt="Huawei Mate X7">
+
+                <h3>HUAWEI Mate X7</h3>
+                <p>Price: 264 <sub>JOD</sub></p>
+                <p>Battery: 5600 mAh</p>
+                <p>Storage: 512GB</p>
+                <p>Camera: 50MP</p>
+
+                <button class="add-to-cart" onclick="addToCart('HUAWEI Mate X7', 264)">
+                    <ion-icon name="cart-outline"></ion-icon> Add
+                </button>
+            </div>
+
+        </div>
+
+
+        
+        <a href="/page2" class="logout-btn">Go To Home</a>
+
+        <script src="{{ url_for('static', filename='phoneJS.js') }}"></script>
+</body>
+
+</html>
